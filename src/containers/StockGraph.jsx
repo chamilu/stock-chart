@@ -24,7 +24,9 @@ const NoStockMessage = styled.div`
 
 class StockGraph extends Component {
   render() {
-    if (!this.props.company) {
+    const { company } = this.props;
+
+    if (!company) {
       return (
         <NoStockWrapper>
           <NoStockMessage>
@@ -34,11 +36,9 @@ class StockGraph extends Component {
       );
     }
 
-    return (
-      <GraphWrapper>
-        <span>{this.props.company.name}</span>
-      </GraphWrapper>
-    );
+    console.log(company);
+
+    return <GraphWrapper />;
   }
 }
 
