@@ -1,17 +1,43 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
+
+const GraphWrapper = styled.div`
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 1px #ccc;
+`;
+
+const NoStockWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  display: table;
+`;
+const NoStockMessage = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: #777;
+  font-size: 12px;
+`;
 
 class StockGraph extends Component {
   render() {
-    console.log(this.props.company);
     if (!this.props.company) {
-      return <div>Please select a company</div>;
+      return (
+        <NoStockWrapper>
+          <NoStockMessage>
+            Please select a company to get stock details
+          </NoStockMessage>
+        </NoStockWrapper>
+      );
     }
 
     return (
-      <div>
+      <GraphWrapper>
         <span>{this.props.company.name}</span>
-      </div>
+      </GraphWrapper>
     );
   }
 }

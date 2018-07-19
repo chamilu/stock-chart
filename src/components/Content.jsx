@@ -5,7 +5,6 @@ import StockGraph from "../containers/StockGraph";
 
 const ContentWrap = styled.div`
   height: 84vh;
-  background-color: #aaa;
   display: flex;
   flex-direction: row;
 `;
@@ -13,11 +12,18 @@ const ContentWrap = styled.div`
 const LeftCol = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: 200px;
-  background-color: #777;
+  flex-basis: 18%;
+  min-width: 130px;
+  background-color: #2c3e56;
+  padding-top: 30px;
 `;
 
-const RightCol = styled.div``;
+const RightCol = styled.div`
+  background-color: #f3f3f3;
+  width: 82%;
+  padding: 20px;
+  box-sizing: border-box;
+`;
 
 export default class Footer extends Component {
   render() {

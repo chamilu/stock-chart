@@ -1,18 +1,31 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const CompanyDiv = styled.div`
+const CompanyWrapper = styled.div`
   flex: 1;
-  border: 1px solid #fff;
+  color: #b1c2d0;
+  text-align: left;
+`;
+
+const Div = styled.div`
+  padding: 8px 0 8px 32px;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  font-size: 12px;
+
+  &:hover {
+    background-color: #374760;
+    border-left: 3px solid #52a9e4;
+  }
 `;
 
 export default class Company extends Component {
   render() {
     const { changeCompany, name } = this.props;
     return (
-      <CompanyDiv onClick={() => changeCompany({ name })}>
-        <span>{name}</span>
-      </CompanyDiv>
+      <CompanyWrapper onClick={() => changeCompany({ name })}>
+        <Div>{name}</Div>
+      </CompanyWrapper>
     );
   }
 }
