@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import CompanyList from "../containers/CompanyList";
 
 const ContentWrap = styled.div`
   height: 84vh;
@@ -17,23 +18,12 @@ const LeftCol = styled.div`
 
 const RightCol = styled.div``;
 
-const LeftColItem = styled.div`
-  flex: 1;
-  border: 1px solid #fff;
-`;
-
 export default class Footer extends Component {
   render() {
     return (
       <ContentWrap>
         <LeftCol>
-          <LeftColItem>1</LeftColItem>
-          <LeftColItem>1</LeftColItem>
-          <LeftColItem>1</LeftColItem>
-          <LeftColItem>1</LeftColItem>
-          <LeftColItem>1</LeftColItem>
-          <LeftColItem>1</LeftColItem>
-          <LeftColItem>1</LeftColItem>
+          <CompanyList />
         </LeftCol>
         <RightCol>this is content.</RightCol>
       </ContentWrap>
