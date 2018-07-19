@@ -4,4 +4,14 @@ const getCompanyList = () => {
   };
 };
 
-export default getCompanyList;
+const getSelectedCompany = company => {
+  return {
+    type: "GET_SELECTED_COMPANY",
+    payload: company
+  };
+};
+
+module.exports = {
+  getCompanyList,
+  getSelectedCompany
+};

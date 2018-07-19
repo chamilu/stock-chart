@@ -8,9 +8,10 @@ const CompanyDiv = styled.div`
 
 export default class Company extends Component {
   render() {
+    const { changeCompany, name } = this.props;
     return (
-      <CompanyDiv>
-        <span>{this.props.name}</span>
+      <CompanyDiv onClick={() => changeCompany({ name })}>
+        <span>{name}</span>
       </CompanyDiv>
     );
   }

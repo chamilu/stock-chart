@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import getCompanyList from "../actions/companyActions";
+import { getCompanyList, getSelectedCompany } from "../actions/companyActions";
 
 import Company from "../components/Company";
 
@@ -10,11 +10,17 @@ class CompanyList extends Component {
   }
 
   renderList = () => {
-    if (!this.props.companyList) {
+    const { companyList, changeCompany } = this.props;
+
+    if (!companyList) {
       return null;
     }
-    return this.props.companyList.map(company => (
-      <Company key={company.id} name={company.name} />
+    return companyList.map(company => (
+      <Company
+        key={company.id}
+        name={company.name}
+        changeCompany={changeCompany}
+      />
     ));
   };
 
@@ -33,6 +39,9 @@ const mapDispatchToProps = dispatch => {
   return {
     getCompanyList: () => {
       dispatch(getCompanyList());
+    },
+    changeCompany: company => {
+      dispatch(getSelectedCompany(company));
     }
   };
 };

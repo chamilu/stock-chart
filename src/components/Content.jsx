@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import CompanyList from "../containers/CompanyList";
+import StockGraph from "../containers/StockGraph";
 
 const ContentWrap = styled.div`
   height: 84vh;
@@ -25,7 +26,9 @@ export default class Footer extends Component {
         <LeftCol>
           <CompanyList />
         </LeftCol>
-        <RightCol>this is content.</RightCol>
+        <RightCol>
+          <StockGraph />
+        </RightCol>
       </ContentWrap>
     );
   }
