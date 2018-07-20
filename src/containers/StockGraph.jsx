@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import _ from "underscore";
 import styled from "styled-components";
+
+import Graph from "../components/Graph";
 
 const GraphWrapper = styled.div`
   background-color: #fff;
@@ -23,8 +26,31 @@ const NoStockMessage = styled.div`
 `;
 
 class StockGraph extends Component {
+  adaptDataForOHCLGraph = graphData => {
+    if (!graphData) return [];
+
+    const collection = graphData["Time Series (Daily)"];
+
+    let stocks = [];
+    _.each(collection, (value, key) => {
+      const obj = {
+        x: new Date(key),
+        y: [
+          parseFloat(value["1. open"]),
+          parseFloat(value["2. high"]),
+          parseFloat(value["3. low"]),
+          parseFloat(value["4. close"])
+        ]
+      };
+      stocks.push(obj);
+    });
+
+    return stocks;
+  };
+
   render() {
     const { company } = this.props;
+    const adaptedData = this.adaptDataForOHCLGraph(company);
 
     if (!company) {
       return (
@@ -36,9 +62,11 @@ class StockGraph extends Component {
       );
     }
 
-    console.log(company);
-
-    return <GraphWrapper />;
+    return (
+      <GraphWrapper>
+        <Graph data={adaptedData} />
+      </GraphWrapper>
+    );
   }
 }
 

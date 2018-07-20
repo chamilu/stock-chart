@@ -15,6 +15,8 @@ const getSelectedCompany = company => {
     `&symbol=${companyName}&outputsize=compact&apikey=${APIKEY}`;
 
   const request = axios.get(url);
+  window.history.pushState({}, null, `?stock=${companyName}`);
+
   return {
     type: "GET_SELECTED_COMPANY",
     payload: request

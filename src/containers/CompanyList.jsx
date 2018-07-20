@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCompanyList, getSelectedCompany } from "../actions/companyActions";
+import { getParameterByName } from "../utils";
 
 import Company from "../components/Company";
 
 class CompanyList extends Component {
   componentDidMount() {
-    this.props.getCompanyList();
+    const { getCompanyList, changeCompany } = this.props;
+
+    const companyName = getParameterByName("stock");
+    getCompanyList();
+
+    if (companyName) {
+      changeCompany({ name: companyName });
+    }
   }
 
   renderList = () => {
