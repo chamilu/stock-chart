@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const CompanyWrapper = styled.div`
@@ -20,6 +21,11 @@ const Div = styled.div`
 `;
 
 export default class Company extends Component {
+  static propTypes = {
+    changeCompany: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired
+  };
+
   render() {
     const { changeCompany, name } = this.props;
     return (

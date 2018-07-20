@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import CanvasJSReact from "../utils/libs/canvasjs.react";
 
 const { CanvasJS, CanvasJSChart } = CanvasJSReact;
 
 export default class Graph extends Component {
+  static propTypes = {
+    data: PropTypes.array.isRequired
+  };
+
   render() {
     const { data } = this.props;
 

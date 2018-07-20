@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { getCompanyList, getSelectedCompany } from "../actions/companyActions";
 import { getParameterByName } from "../utils";
 
 import Company from "../components/Company";
 
 class CompanyList extends Component {
+  static propTypes = {
+    getCompanyList: PropTypes.func.isRequired,
+    changeCompany: PropTypes.func.isRequired,
+    companyList: PropTypes.array
+  };
+
   componentDidMount() {
     const { getCompanyList, changeCompany } = this.props;
 

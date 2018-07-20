@@ -62,6 +62,20 @@ class StockGraph extends Component {
       );
     }
 
+    if (adaptedData && adaptedData.length === 0) {
+      return (
+        <NoStockWrapper>
+          <NoStockMessage>
+            NOTE: Thank you for using Alpha Vantage! <br />Please visit
+            <a href="https://www.alphavantage.co/premium/">
+              https://www.alphavantage.co/premium/
+            </a>{" "}
+            if you would like to have a higher API call volume.
+          </NoStockMessage>
+        </NoStockWrapper>
+      );
+    }
+
     return (
       <GraphWrapper>
         <Graph data={adaptedData} />
