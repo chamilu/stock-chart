@@ -12,7 +12,7 @@ const ContentWrap = styled.div`
 const LeftCol = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: 18%;
+  flex-basis: 18vw;
   min-width: 130px;
   background-color: #2c3e56;
   padding-top: 30px;
@@ -20,7 +20,7 @@ const LeftCol = styled.div`
 
 const RightCol = styled.div`
   background-color: #f3f3f3;
-  width: 82%;
+  width: 82vw;
   padding: 20px;
   box-sizing: border-box;
 `;

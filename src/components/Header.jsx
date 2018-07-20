@@ -5,11 +5,11 @@ const HeaderWrap = styled.div`
   height: 8vh;
   background-color: #fff;
   display: table;
-  width: 100%;
+  width: 100vw;
 `;
 
 const LogoWrapper = styled.div`
-  width: 18%;
+  width: 18.05vw;
   height: 100%;
   min-width: 130px;
   background-color: #2c3e56;
