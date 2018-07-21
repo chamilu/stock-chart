@@ -71,7 +71,7 @@ class StockGraph extends Component {
         <NoStockWrapper>
           <Loader isLoading={loader.isLoading} />
           <NoStockMessage>
-            NOTE: Thank you for using Alpha Vantage! <br />Please visit
+            NOTE: Thank you for using Alpha Vantage! <br />Please visit&nbsp;
             <a href="https://www.alphavantage.co/premium/">
               https://www.alphavantage.co/premium/
             </a>{" "}
