@@ -1,10 +1,9 @@
 import axios from "axios";
-
-const APIKEY = "T3EDDPYB5BGTQYFM";
+import { APIKEY, types } from "../constants";
 
 const getCompanyList = () => {
   return {
-    type: "GET_COMPANY_LIST"
+    type: types.GET_COMPANY_LIST
   };
 };
 
@@ -18,7 +17,7 @@ const getSelectedCompany = company => {
   window.history.pushState({}, null, `?stock=${companyName}`);
 
   return {
-    type: "GET_SELECTED_COMPANY",
+    type: types.GET_SELECTED_COMPANY,
     payload: request
   };
 };

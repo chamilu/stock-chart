@@ -1,6 +1,8 @@
+import { types } from "../constants";
+
 const selectedCompanyReducer = (state = null, action) => {
   switch (action.type) {
-    case "GET_SELECTED_COMPANY":
+    case types.GET_SELECTED_COMPANY:
       return action.payload ? action.payload.data : null;
       break;
 

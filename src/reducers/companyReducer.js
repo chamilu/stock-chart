@@ -1,3 +1,5 @@
+import { types } from "../constants";
+
 const initialState = [
   { id: 0, name: "MSFT" },
   { id: 1, name: "AAPL" },
@@ -14,7 +16,7 @@ const initialState = [
 
 const companyReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_COMPANY_LIST":
+    case types.GET_COMPANY_LIST:
       return state;
       break;
 
