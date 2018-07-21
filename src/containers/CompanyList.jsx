@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getCompanyList, getSelectedCompany } from "../actions/companyActions";
 import { getParameterByName } from "../utils";
+import { getCompanyList, getSelectedCompany } from "../actions/companyActions";
+import { showGraphLoader, hideGraphLoader } from "../actions/loaderActions";
 
 import Company from "../components/Company";
 
@@ -56,7 +57,15 @@ const mapDispatchToProps = dispatch => {
       dispatch(getCompanyList());
     },
     changeCompany: company => {
-      dispatch(getSelectedCompany(company));
+      dispatch(showGraphLoader());
+      dispatch(getSelectedCompany(company))
+        .then(() => {
+          dispatch(hideGraphLoader());
+        })
+        .catch(() => {
+          dispatch(hideGraphLoader());
+          alert("Something went wrong. Please try again.");
+        });
     }
   };
 };

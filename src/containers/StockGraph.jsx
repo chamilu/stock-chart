@@ -4,15 +4,18 @@ import _ from "underscore";
 import styled from "styled-components";
 
 import Graph from "../components/Graph";
+import Loader from "../components/Loader";
 
 const GraphWrapper = styled.div`
   background-color: #fff;
   width: 100%;
   height: 100%;
   box-shadow: 0px 0px 1px #ccc;
+  position: relative;
 `;
 
 const NoStockWrapper = styled.div`
+  position: relative;
   height: 100%;
   width: 100%;
   display: table;
@@ -49,12 +52,13 @@ class StockGraph extends Component {
   };
 
   render() {
-    const { company } = this.props;
+    const { company, loader } = this.props;
     const adaptedData = this.adaptDataForOHCLGraph(company);
 
     if (!company) {
       return (
         <NoStockWrapper>
+          <Loader isLoading={loader.isLoading} />
           <NoStockMessage>
             Please select a company to get stock details
           </NoStockMessage>
@@ -65,6 +69,7 @@ class StockGraph extends Component {
     if (adaptedData && adaptedData.length === 0) {
       return (
         <NoStockWrapper>
+          <Loader isLoading={loader.isLoading} />
           <NoStockMessage>
             NOTE: Thank you for using Alpha Vantage! <br />Please visit
             <a href="https://www.alphavantage.co/premium/">
@@ -78,6 +83,7 @@ class StockGraph extends Component {
 
     return (
       <GraphWrapper>
+        <Loader isLoading={loader.isLoading} />
         <Graph data={adaptedData} />
       </GraphWrapper>
     );
@@ -86,7 +92,8 @@ class StockGraph extends Component {
 
 const mapStateToProps = state => {
   return {
-    company: state.selectedCompany
+    company: state.selectedCompany,
+    loader: state.loader
   };
 };
 
